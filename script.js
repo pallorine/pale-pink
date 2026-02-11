@@ -16,20 +16,33 @@ function selectOption(option) {
 }
 
 function flashRainbowColors(callback) {
-    var colors = ['#ffcccc', '#ffdab9', '#ffffe0', '#ccffcc', '#ccccff', '#e6e6fa', '#dda0dd'];
-    var i = 0;
-    var interval = setInterval(function () {
-        document.body.style.backgroundColor = colors[i];
-        i = (i + 1) % colors.length;
-    }, 500);
-    setTimeout(function () {
-        clearInterval(interval);
-        document.body.style.backgroundColor = '';
-        if (callback) {
-            callback();
-        }
-    }, 2000);
+  const colors = ['#ffd6e0', '#ffe7c7', '#fff6c9', '#d8ffe0', '#dbe7ff', '#efe2ff', '#ffd9f4'];
+  let i = 0;
+
+  let tint = document.getElementById('tint');
+  if (!tint) {
+    tint = document.createElement('div');
+    tint.id = 'tint';
+    document.body.appendChild(tint);
+  }
+
+  tint.style.opacity = '0.35';
+
+  const interval = setInterval(() => {
+    tint.style.backgroundColor = colors[i];
+    i = (i + 1) % colors.length;
+  }, 250);
+
+  setTimeout(() => {
+    clearInterval(interval);
+    tint.style.opacity = '0';
+    setTimeout(() => {
+      tint.style.backgroundColor = 'transparent';
+      if (callback) callback();
+    }, 350);
+  }, 1400);
 }
+
 
 function displayYoumuHeart() {
     var imageContainer = document.getElementById('image-container');
@@ -58,3 +71,4 @@ function displayCatHeart() {
 }
 
 displayYoumuHeart();
+
