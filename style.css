@@ -39,14 +39,10 @@ body {
 }
 
 #text-container {
-  width: min(560px, 100%);
-  padding: 28px 26px 24px;
-  border-radius: 22px;
-  background: var(--card);
-  backdrop-filter: blur(10px);
-  box-shadow: var(--shadow);
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  width: min(640px, 100%);
+  padding: 20px;
 }
+
 
 #image-container img {
   width: min(320px, 80vw);
@@ -64,9 +60,13 @@ body {
 
 #question {
   font-family: 'Sacramento', cursive;
-  font-size: clamp(40px, 6vw, 64px);
+  font-size: clamp(44px, 7vw, 72px);
   line-height: 1.05;
-  margin: 6px 0 10px;
+  margin: 10px 0 18px;
+
+  text-shadow:
+    0 4px 20px rgba(255, 255, 255, 0.6),
+    0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 #options {
@@ -123,3 +123,4 @@ button:active {
     padding: 12px 20px;
   }
 }
+
